@@ -1,9 +1,9 @@
 var express = require('express'),
     router = express.Router(),
     logger = require('../../config/logger'),
-    mongoose = require('mongoose')
-User = mongoose.model('User');
-asyncHandler = require('express-async-handler');
+    mongoose = require('mongoose'),
+    User = mongoose.model('User'),
+    asyncHandler = require('express-async-handler');    
 
 module.exports = function (app, config) {
     app.use('/api', router);
@@ -12,6 +12,9 @@ module.exports = function (app, config) {
         logger.log('info', 'Get all HelpTickets');
         let query = HelpTicket.find();
         query.sort(req.query.order)
+
+        // .populate({path: 'personId', model: 'User', select: 'lastName firstName fullName'} )
+        // .populate({path: 'ownerId', model: 'User', select: 'lastName firstName fullName'} );
 
         if(req.query.status){
             if(req.query.status[0] == '-'){

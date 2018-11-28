@@ -11,6 +11,5 @@ var userSchema = new Schema({
     password: { type: String, require: true }
 });
 
-module.exports = 
- Mongoose.model('User', userSchema);
+module.exports = Mongoose.model('User', userSchema);
 
