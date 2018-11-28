@@ -1,0 +1,28 @@
+{
+  "name": "repository3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "mocha test/test.js"
+  },
+  "author": "Nicole Paro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-nodemon": "^0.5.4",
+    "grunt-env": "^0.4.4",
+    "jshint-stylish": "^2.2.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.5",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.4.1"
+  },
+  "devDependencies": {
+    "chai-http": "^4.2.0"
+  }
+}
