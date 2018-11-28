@@ -30,21 +30,12 @@ module.exports = function (app, config) {
         });
     }
 
-    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: true
     }));
+    app.use(bodyParser.json());
 
     app.use(express.static(config.root + '/public'));
-
-    var users = [{ name: 'John', email: 'woo@hoo.com' },
-    { name: 'Betty', email: 'loo@woo.com' },
-    { name: 'Hal', email: 'boo@woo.com' }
-    ];
-
-    app.get('/api/users', function (req, res) {
-        res.status(200).json(users);
-    });
 
     var models = glob.sync(config.root + '/app/models/*.js');
     models.forEach(function (model) {
