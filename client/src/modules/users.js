@@ -28,59 +28,65 @@ export class Users {
             && this.user.email && this.user.password)
             await this.users.saveUser(this.user);
     }
-    async activate(){
+    async activate() {
         await this.getUsers();
     }
 
-    attached(){
+    attached() {
         feather.replace()
-    }    
-    
-    async getUsers(){
+    }
+
+    async getUsers() {
         await this.users.getUsers();
     }
 
     newUser() {
         this.user = {
-        firstName: "",
-        lastName: "",
-        active: true,
-        role: "user",
-        email: "",
-        password: ""
+            firstName: "",
+            lastName: "",
+            active: true,
+            role: "user",
+            email: "",
+            password: ""
         }
         this.openEditForm();
-        }
+    }
 
-        editUser(user){
-            this.user = user;
-            this.openEditForm();
-            }            
-        
-        openEditForm(){
-            this.showUserEditForm = true;
-            setTimeout(() => {$("#firstName").focus();}, 500);
-            }            
+    editUser(user) {
+        this.user = user;
+        this.openEditForm();
+    }
+
+    openEditForm() {
+        this.showUserEditForm = true;
+        setTimeout(() => { $("#firstName").focus(); }, 500);
+    }
+
+    changeActive(user) {
+        this.user = user;
+        this.save();
+    }
+
 
     async save() {
         if (this.user && this.user.firstName && this.user.lastName
-        && this.user.email && this.user.password) {
-        await this.users.saveUser(this.user);
-        await this.getUsers();
-        this.back();
+            && this.user.email && this.user.password) {
+            await this.users.saveUser(this.user);
+            await this.getUsers();
+            this.back();
         }
-        }
+    }
 
-        async delete(){
-            if(this.user){
+    async delete() {
+        if (this.user) {
             await this.users.delete(this.user);
             await this.getUsers();
             this.back();
-            }
-            }
-        
-    back(){
+        }
+    }
+
+    back() {
         this.showUserEditForm = false;
-      }    
-    
+    }
+
 }
