@@ -1,10 +1,52 @@
 <template>
-        First Name: <input value.bind="user.firstName">
-        Last Name: <input value.bind="user.lastName">
-        Active: <input value.bind="user.active">
-        Role: <input value.bind="user.role">
-        Email: <input value.bind="user.email">
-        Password: <input value.bind="user.password">
-        <button click.trigger="save()">Save</button>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+
+                    <div class="list-group-item">
+                            <span click.trigger="back()"><i data-feather="arrow-left-circle"></i></span>
+                            <span click.trigger="save()" style="margin-left:5px;"><i data-feather="save"></i></span>
+                            <span show.bind="user._id" click.trigger="delete()"><i data-feather="trash-2"></i></span>
+                            </div>                            
+
+                <form>
+                    <div class="form-group" style="margin-top:20px;">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" value.bind="user.firstName" id="firstName"
+                                placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" value.bind="user.lastName" id="lastName"
+                                placeholder="Last Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role">Email</label>
+                            <input type="text" class="form-control" value.bind="user.email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Password</label>
+                            <input type="text" class="form-control" value.bind="user.password" id="password"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="role" value.bind="user.role">Role</label>
+                            <select class="form-control" id="role">
+                                <option value="user">User</option>
+                                <option value="staff">Staff</option>
+                                <option value="admin">Administrator</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                                <input class="form-check-input" checked.bind="user.active" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Active
+                                </label>
+                            </div>
+                </form>
+                <br>
+                <button click.trigger="save()">Save</button>
 </template>
-    

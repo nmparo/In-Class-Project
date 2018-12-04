@@ -1,0 +1,36 @@
+<template>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <br></br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="4">                                    
+                                <span click.trigger="newUser()"><i data-feather="plus"></i></span>
+                                <span click.trigger="getUsers()" style="margin-left:5px;"><i data-feather="refresh-cw"></i></span>
+                            </th>
+                        </tr>
+
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Active</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr repeat.for="user of users.usersArray">
+                            <td>${user.firstName}</td>
+                            <td>${user.lastName}</td>
+                            <td>${user.role}</td>
+                            <td>${user.active}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</template>
