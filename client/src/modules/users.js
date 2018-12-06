@@ -11,23 +11,6 @@ export class Users {
         this.showUserEditForm = false;
     }
 
-    newUser() {
-        this.user = {
-            firstName: "",
-            lastName: "",
-            active: true,
-            role: "user",
-            email: "",
-            password: ""
-        }
-        this.showUserEditForm = true;
-    }
-
-    async save() {
-        if (this.user && this.user.firstName && this.user.lastName
-            && this.user.email && this.user.password)
-            await this.users.saveUser(this.user);
-    }
     async activate() {
         await this.getUsers();
     }
@@ -67,7 +50,6 @@ export class Users {
         this.save();
     }
 
-
     async save() {
         if (this.user && this.user.firstName && this.user.lastName
             && this.user.email && this.user.password) {
@@ -88,5 +70,9 @@ export class Users {
     back() {
         this.showUserEditForm = false;
     }
+
+    logout() {
+        this.router.navigate('home');
+      }
 
 }
