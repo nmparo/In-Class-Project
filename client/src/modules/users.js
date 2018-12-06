@@ -16,7 +16,7 @@ export class Users {
     }
 
     attached() {
-        feather.replace()
+        feather.replace();
     }
 
     async getUsers() {
@@ -52,7 +52,7 @@ export class Users {
 
     async save() {
         if (this.user && this.user.firstName && this.user.lastName
-            && this.user.email && this.user.password) {
+            && this.user.email && this.user.role && this.user.password) {
             await this.users.saveUser(this.user);
             await this.getUsers();
             this.back();
