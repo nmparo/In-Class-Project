@@ -79,7 +79,7 @@ export class DataServices {
     delete(url) {
 		return this.httpClient
 			.fetch(url, {
-				method: 'delete'
+				method: 'delete' 
 			})
 			.then(response => response.json())
 			.then(object => {

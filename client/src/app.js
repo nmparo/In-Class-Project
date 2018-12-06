@@ -23,6 +23,12 @@ export class App {
         moduleId: './modules/users',
         name: 'Users',
         auth: true
+      },
+      {
+        route: 'helpTickets',
+        moduleId: './modules/helpTickets',
+        name: 'Help Tickets',
+        auth: true
       }
     ]);
   }

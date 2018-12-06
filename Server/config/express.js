@@ -58,7 +58,7 @@ module.exports = function (app, config) {
     });
 
     app.use(function (err, req, res, next) {
-        console.log(err)
+        console.log(err);
         if (process.env.NODE_ENV !== 'test') logger.log(err.stack,'error');
         res.type('text/plan');
         if(err.status){

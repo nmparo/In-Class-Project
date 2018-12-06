@@ -1,5 +1,6 @@
 var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
+var Bcrypt = require('bcryptjs');
 
 var HelpTicketContentSchema = new Schema({
     personId: { type: Schema.Types.ObjectId },

@@ -1,0 +1,26 @@
+<template>
+        <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8">        
+    <form>
+        <div class ="form-group" style="margin-top: 20px;">
+            <label for="title">Title</label>
+            <input type="text" readonly.bind="helpTicket._id" class="form-control" value.bind="helpTicket.title" id="title" placeholder="Title">
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="content">Description</label>    
+            <textarea value.bind="helpTicketContent.content" class="form-control" rows="8"></textarea>
+        </div>
+        <div class="card" repeat.for="content of helpTickets.helpTicketsContentsArray">
+            <div class="card-body">
+                <div class="row" style="padding: 3px;">
+                <div class="col 3">
+                    <span innerhtml.bind="content.date Created | formatDate"></span><br />
+                </div>
+                <div class="col 9" style="border-left-style: solid;border-left-width: 1px;">
+                ${content.content}
+                </div>
+            </div>
+        </div>
+    </form>
+</template>
