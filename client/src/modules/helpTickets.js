@@ -1,16 +1,17 @@
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
-import { helpTicket } from '../resources/data/help-ticket-object';
+import { HelpTicket } from '../resources/data/help-ticket-object';
 
-@inject(Router, helpTicket)
+@inject(Router, HelpTicket)
 export class HelpTickets {
     constructor(router, helpTickets) {
         this.router = router;
         this.helpTickets = helpTickets;
-        this.showHelpTicketEditForm = false;
         this.message = 'Help Tickets';
+        this.showHelpTicketEditForm = false;
         this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
     }
+    
     async activate() {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
@@ -20,7 +21,7 @@ export class HelpTickets {
     }
 
     async getHelpTickets() {
-        await this.helpTickets.getHelptTickets();
+        await this.helpTickets.getHelpTickets();
     }
 
     newHelpTicket() {
@@ -52,13 +53,26 @@ export class HelpTickets {
         setTimeout(() => { $("#title").focus(); }, 500);
     }
 
+    changeActive(helpTicket) {
+        this.helpTicket = helpTicket;
+        this.save();
+    }
+
     async save() {
         if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
             if (this.userObj.role !== 'user') {
                 this.helpTicket.ownerId = this.userObj._id;
             }
-            let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
+            let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent };
             await this.helpTickets.saveHelpTicket(helpTicket);
+            await this.getHelpTickets();
+            this.back();
+        }
+    }
+
+    async delete() {
+        if (this.helpTicket) {
+            await this.helpTickets.delete(this.helpTicket);
             await this.getHelpTickets();
             this.back();
         }
@@ -67,8 +81,8 @@ export class HelpTickets {
     back() {
         this.showHelpTicketEditForm = false;
         this.showHelpTicketDisplayForm = false;
-        // this.filesToUpload = new Array();
-        // this.files = new Array();
+        this.filesToUpload = new Array();
+        this.files = new Array();
     }
 
     logout() {
