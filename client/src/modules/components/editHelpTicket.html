@@ -1,7 +1,12 @@
 <template>
         <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-8">        
+                    <div class="col-8">
+                            <div class="list-group-item">
+                                    <span click.trigger="back()"><i data-feather="arrow-left-circle"></i></span>
+                                    <span click.trigger="save()" style="margin-left:5px;"><i data-feather="save"></i></span>
+                                    <span show.bind="helpTicket._id" click.trigger="delete()"><i data-feather="trash-2"></i></span>
+                                    </div>            
     <form>
         <div class ="form-group" style="margin-top: 20px;">
             <label for="title">Title</label>
