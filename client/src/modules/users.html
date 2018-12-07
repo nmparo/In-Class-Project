@@ -1,5 +1,5 @@
 <template>
-        <h1>${message}</h1>
+        <h1><span style="color:teal;margin-left:10px;">${message}</span></h1>
         <compose show.bind="!showUserEditForm" view="./components/tableUsers.html"></compose>
         <compose show.bind="showUserEditForm" view="./components/editUser.html"></compose>
     </template>

@@ -66,6 +66,9 @@ export class HelpTickets {
 
     back() {
         this.showHelpTicketEditForm = false;
+        this.showHelpTicketDisplayForm = false;
+        // this.filesToUpload = new Array();
+        // this.files = new Array();
     }
 
     logout() {
