@@ -1,3 +1,7 @@
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Updating user"}
+{"level":"info","message":"Get all users"}
 {"level":"info","message":"Loading Mongoose functionality"}
 {"level":"info","message":"Starting application"}
 {"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}

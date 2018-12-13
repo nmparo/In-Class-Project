@@ -2,11 +2,10 @@ import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { HelpTicket } from '../resources/data/help-ticket-object';
 
-@inject(Router, HelpTicket)
+@inject(HelpTicket)
 export class HelpTickets {
-    constructor(router, helpTickets) {
-        this.router = router;
-        this.helpTickets = helpTickets;
+    constructor(helpTicket) {
+        this.helpTickets = helpTicket;
         this.message = 'Help Tickets';
         this.showHelpTicketEditForm = false;
         this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
@@ -21,7 +20,12 @@ export class HelpTickets {
     }
 
     async getHelpTickets() {
-        await this.helpTickets.getHelpTickets();
+        await this.helpTickets.getHelpTickets(this.userObj);
+    }
+
+    openHelpTicketEditForm() {
+        this.showHelpTicketEditForm = true;
+        setTimeout(() => { $("#firstName").focus(); }, 500);
     }
 
     newHelpTicket() {
@@ -35,7 +39,7 @@ export class HelpTickets {
             personId: this.userObj._id,
             content: ""
         };
-        this.showEditForm();
+        this.openHelpTicketEditForm();
     }
 
     async editHelpTicket(helpTicket) {
@@ -44,31 +48,22 @@ export class HelpTickets {
             personId: this.userObj._id,
             content: ""
         };
-        await this.helpTickets.getHelpTicketsContents(helpTicket._id)
-        this.showEditForm();
-    }
-
-    showEditForm() {
-        this.showHelpTicketEditForm = true;
-        setTimeout(() => { $("#title").focus(); }, 500);
-    }
-
-    changeActive(helpTicket) {
-        this.helpTicket = helpTicket;
-        this.save();
+        await this.helpTickets.getHelpTicketContent(helpTicket._id);
+        this.openHelpTicketEditForm();
     }
 
     async save() {
         if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
-            if (this.userObj.role !== 'user') {
-                this.helpTicket.ownerId = this.userObj._id;
-            }
-            let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent };
-            await this.helpTickets.saveHelpTicket(helpTicket);
-            await this.getHelpTickets();
-            this.back();
+        if (this.userObj.role === 'staff' || this.userObj.role === 'admin') {
+            this.helpTicket.ownerId = this.userObj._id;
         }
-    }
+        let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
+        let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
+        if (this.filesToUpload && this.filesToUpload.length > 0) this.helpTickets.uploadFile(this.filesToUpload, 		serverResponse.contentID);
+        await this.getHelpTickets();
+        this.back();
+        }
+        }        
 
     async delete() {
         if (this.helpTicket) {
@@ -79,11 +74,22 @@ export class HelpTickets {
     }
 
     back() {
+        this.helpTicketContentArray = false;
         this.showHelpTicketEditForm = false;
-        this.showHelpTicketDisplayForm = false;
         this.filesToUpload = new Array();
         this.files = new Array();
     }
+
+    changeFiles() {
+        this.filesToUpload = this.filesToUpload ? this.filesToUpload : new Array();
+        for (var i = 0; i < this.files.length; i++) {
+        let addFile = true;
+        this.filesToUpload.forEach(item => {
+            if (item.name === this.files[i].name) addFile = false;
+        })
+            if (addFile) this.filesToUpload.push(this.files[i]);
+        }
+        }        
 
     logout() {
         this.router.navigate('home');
