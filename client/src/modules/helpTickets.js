@@ -1,5 +1,5 @@
 import { inject } from 'aurelia-framework';
-import { Router } from 'aurelia-router';
+// import { Router } from 'aurelia-router';
 import { HelpTicket } from '../resources/data/help-ticket-object';
 
 @inject(HelpTicket)
@@ -23,7 +23,7 @@ export class HelpTickets {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
 
-    openHelpTicketEditForm() {
+    showEditForm() {
         this.showHelpTicketEditForm = true;
         setTimeout(() => { $("#firstName").focus(); }, 500);
     }
@@ -39,7 +39,7 @@ export class HelpTickets {
             personId: this.userObj._id,
             content: ""
         };
-        this.openHelpTicketEditForm();
+        this.showEditForm();
     }
 
     async editHelpTicket(helpTicket) {
@@ -49,7 +49,7 @@ export class HelpTickets {
             content: ""
         };
         await this.helpTickets.getHelpTicketContent(helpTicket._id);
-        this.openHelpTicketEditForm();
+        this.showEditForm();
     }
 
     async save() {
@@ -59,7 +59,7 @@ export class HelpTickets {
         }
         let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
         let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
-        if (this.filesToUpload && this.filesToUpload.length > 0) this.helpTickets.uploadFile(this.filesToUpload, 		serverResponse.contentID);
+        if (this.filesToUpload && this.filesToUpload.length > 0) this.helpTickets.uploadFile(this.filesToUpload, serverResponse.contentID);
         await this.getHelpTickets();
         this.back();
         }
@@ -67,7 +67,7 @@ export class HelpTickets {
 
     async delete() {
         if (this.helpTicket) {
-            await this.helpTickets.delete(this.helpTicket);
+            await this.helpTickets.deleteHelpTicket(this.helpTicket);
             await this.getHelpTickets();
             this.back();
         }

@@ -1,4 +1,5 @@
 <template>
+    
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -15,7 +16,7 @@
                 </div>
                 <div class="form-group" style="margin-top:20px;">
                     <label for="content">Description</label>
-                    <textarea value.bind="helpTicketContent.content" class="form-control" rows="10"></textarea>
+                    <textarea value.bind="helpTicketContent.content" class="form-control" rows="8"></textarea>
                 </div>
                 <div class="row">
                     <div class="col-2">
@@ -35,10 +36,10 @@
                 <div class="card" repeat.for="content of helpTickets.helpTicketContentArray">
                     <div class="card-body">
                         <div class="row" style="padding:3px;">
-                            <div class="col-3">
+                            <!-- <div class="col-3">
                                 <span innerhtml.bind="content.dateCreated | formatDate"></span><br />
                                 ${content.personId.firstName} ${content.personId.lastName}
-                            </div>
+                            </div> -->
                             <div class="col-9" style="border-left-style: solid;border-left-width:1px;">
                                 ${content.content}
                             </div>

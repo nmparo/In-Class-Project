@@ -21,10 +21,10 @@
                         </thead>
                     <tbody>
                         <tr click.trigger="editHelpTicket(helpTicket)" repeat.for="helpTicket of helpTickets.helpTicketsArray">
-                            <td click.trigger="editHelpTicket(helpTicket)"> ${helpTicket.title}</td>
-                            <td click.trigger="editHelpTicket(helpTicket)"> ${helpTicket.status}</td>
-                            <td click.trigger="editHelpTicket(helpTicket)"> ${helpTicket.personId.firstName} ${helpTicket.personId.lastName} </td>
-                            <td click.trigger="editHelpTicket(helpTicket)"> ${helpTicket.ownerId.firstName} ${helpTicket.ownerId.lastName} </td>
+                            <td>${helpTicket.title}</td>
+                            <td> ${helpTicket.status}</td>
+                            <td>${helpTicket.personId.firstName}</td>
+                            <td>${helpTicket.ownerId.lastName}</td>
                         </tr>
                         </tbody>
                 </table>

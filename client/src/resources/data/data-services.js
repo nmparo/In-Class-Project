@@ -95,7 +95,7 @@ export class DataServices {
 		        files.forEach((item, index) => {
 			formData.append("file" + index, item);
 		})
-		return this.httpClient
+		return this.httpClient
 		.fetch(url, {
 		method: 'post',
 		body: formData

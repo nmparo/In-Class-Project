@@ -1,0 +1,52 @@
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Updating HelpTicket"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Deleting HelpTicket %s"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Updating HelpTicket"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get a HelpTickets Content"}
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Creating user"}
+{"level":"info","message":"Get all users"}
+{"level":"error","message":"File not found"}
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Get all HelpTickets"}
+{"level":"info","message":"Get all users"}
