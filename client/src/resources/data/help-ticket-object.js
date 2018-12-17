@@ -48,7 +48,7 @@ export class HelpTicket {
     }
 
     async deleteHelpTicket(helpTicket) {
-        if (helpTicket && helpTicket._id) {
+        if (helpTicket) {
             await this.data.delete(this.HELP_TICKET_SERVICE + '/' + helpTicket._id);
             console.log(helpTicket._id);
         }
@@ -56,7 +56,7 @@ export class HelpTicket {
 
 async uploadFile(files, id) {
 	await this.data.uploadFiles(files, this.HELP_TICKET_CONTENT_SERVICE + "/upload/" + id );
-}
+    }
 
 
 }
