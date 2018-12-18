@@ -19,7 +19,7 @@ export class HelpTickets {
         feather.replace();
     }
 
-    async getHelpTicket() {
+    async getHelpTickets() {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
 
@@ -68,7 +68,7 @@ export class HelpTickets {
     async delete() {
         if (this.helpTicket) {
             await this.helpTickets.deleteHelpTicket(this.helpTicket);
-            await this.getHelpTicket();
+            await this.getHelpTickets();
             this.back();
         }
     }

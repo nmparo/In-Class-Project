@@ -79,7 +79,7 @@ module.exports = function (app, config) {
     
         router.delete('/helpTickets/:id', requireAuth, asyncHandler(async (req, res) => {
             logger.log('info', 'Deleting HelpTicket %s', req.params.id);
-            await HelpTicket.deleteOne({ _id: req.params._id })
+            await HelpTicket.deleteOne({ _id: req.params.id })
                 .then(result => {
                     console.log('HERE')
                     res.status(200).json(result);
